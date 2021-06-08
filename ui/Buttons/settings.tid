@@ -1,0 +1,22 @@
+title: $:/plugins/BTC/PrintRiver/ui/Buttons/settings
+tags: $:/tags/PrintToolbar
+
+\define get-classes(class)
+$(tv-config-toolbar-class)$ $class$
+\end
+\define deleteState()
+<$list filter="[[$(storyTiddler)$]!regexp[^$]]">
+<$action-deletetiddler $tiddler="""$(printState)$"""/>
+</$list>
+\end
+
+<$vars popupTiddler={{{ [<storyTiddler>regexp[^$]addprefix[$:/state/popup/print-tiddler-toolbar/tools]] [<storyTiddler>!regexp[^$]addprefix[$:/state/popup/tiddler-print/]] }}}>
+<$button class=<<get-classes "tc-print-tiddler-tools-button">> popup=<<popupTiddler>> tooltip={{$:/language/Buttons/PrintRiver/Toolbar/Tools/Hint}} aria-label={{$:/language/Buttons/PrintRiver/Toolbar/Tools/Hint}}>{{$:/core/images/theme-button}}</$button>
+<$reveal stateTitle=<<popupTiddler>> type="popup" position={{{ [<storyTiddler>regexp[^$]addprefix[below]] [<storyTiddler>!regexp[^$]addprefix[belowleft]removesuffix<storyTiddler>] }}} class="tc-popup-keep tc-drop-down tc-print-tiddler-tools-dropdown" retain="yes" animate="yes" updatePopupPosition="yes">
+<div class="tc-chooser tc-print-window-chooser">
+<$list filter="[all[tiddlers+shadows]tag[$:/tags/PrintToolbar/Tools]!has[draft.of]]" variable="listItem">
+<$transclude tiddler=<<listItem>>/>
+</$list>
+</div>
+</$reveal>
+</$vars>
