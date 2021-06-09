@@ -1,6 +1,12 @@
 title: $:/plugins/BTC/PrintRiver/styles
 tags: $:/tags/Stylesheet
 
+\define sidebarbreakpoint-minus-one()
+<$text text={{{ [{$:/themes/tiddlywiki/vanilla/metrics/sidebarbreakpoint}removesuffix[px]subtract[1]addsuffix[px]] ~[{$:/themes/tiddlywiki/vanilla/metrics/sidebarbreakpoint}] }}}/>
+\end
+\define sidebarbreakpoint()
+<$text text={{$:/themes/tiddlywiki/vanilla/metrics/sidebarbreakpoint}}/>
+\end
 \define set-tiddler-controls-visibility()
 [data-tiddler-title="$(currentTiddler)$"]:hover .tc-tiddler-title {
 	display: inline;
@@ -201,12 +207,12 @@ display: none;
 }
 .tc-print-tiddler-list-view .tc-story-river {
 	padding: 0;
-	width: calc(100vw - 2.05em);
+	width: 100%;
 }
 .tc-print-tiddler-list-view .tc-tiddler-frame {
 	box-shadow: none;
 	border: none;
-	width: calc(100vw - 2.05em);
+	width: 100%;
 	margin-bottom: 0;
 }
 .tc-print-tiddler-list-view .tc-tiddler-frame:first-child {
@@ -221,9 +227,6 @@ display: none;
 	padding: 1em 2em 1em 1em;
 	border-radius: 4px;
 	background-color: white;
-}
-.tc-page-container:not(.tc-print-tiddler-list-view) .tc-page-break-button {
-	display: none;
 }
 
 .tc-print-tiddler-list-view .tc-tiddler-frame .tc-tiddler-body table {
@@ -241,7 +244,7 @@ display: none;
 }
 }
 
-<$list filter="[all[tiddlers]removeprefix[$:/state/print-page-break/]]">
+<$list filter="[all[tiddlers]removeprefix[$:/state/print-page-break/]escapecss[]]">
 <<set-page-break-tiddlers>>
 </$list>
 
@@ -287,10 +290,22 @@ display: none;
 	cursor: initial;
 }
 
-.tc-print-tiddler-list-view .tc-tiddler-frame .tc-tiddler-info {
-	margin: 0 -28px 0 -28px;
+@media (max-width: <<sidebarbreakpoint-minus-one>>) {
+	
+	.tc-print-tiddler-list-view .tc-tiddler-frame .tc-tiddler-info {
+		margin: 0 -28px 0 -28px;
+	}
+
 }
 
-.tc-print-tiddler-list-view .tc-print-tiddler-tools-dropdown .tc-chooser button #text {
-	margin-left: 1.5em;
+@media (min-width: <<sidebarbreakpoint>>) {
+
+	.tc-print-tiddler-list-view .tc-tiddler-frame .tc-tiddler-info {
+		margin: 0 -56px 0 -56px;
+	}	
+}
+
+.tc-print-tiddler-list-view .tc-print-tiddler-tools-dropdown .tc-chooser button {
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
 }

@@ -1,0 +1,33 @@
+title: $:/plugins/BTC/PrintRiver/ui/Buttons/page-breaks
+tags: $:/tags/PrintToolbar
+
+\define lingo-base() $:/language/Buttons/PrintRiver/PageBreak/
+\define get-classes(class) $(tv-config-toolbar-class)$ $class$
+\define set-page-break()
+<$action-setfield $tiddler="""$:/state/print-page-break/$(currentTiddler)$""" text="yes"/>
+\end
+\define unset-page-break()
+<$action-deletetiddler $tiddler="""$:/state/print-page-break/$(currentTiddler)$"""/>
+\end
+
+<$vars popupTiddler={{{ [<storyTiddler>regexp[^$]addprefix[$:/state/popup/print-tiddler-toolbar/page-break]] [<storyTiddler>!regexp[^$]addprefix[$:/state/popup/tiddler-page-break/]] }}}>
+<$button class=<<get-classes "tc-print-tiddler-tools-button">> popup=<<popupTiddler>> tooltip={{$:/language/Buttons/PrintRiver/Toolbar/Tools/Hint}} aria-label={{$:/language/Buttons/PrintRiver/Toolbar/Tools/Hint}}>{{$:/core/images/unfold-all-button}}</$button>
+<$reveal stateTitle=<<popupTiddler>> type="popup" position={{{ [<storyTiddler>regexp[^$]addprefix[below]] [<storyTiddler>!regexp[^$]addprefix[belowleft]removesuffix<storyTiddler>] }}} class="tc-popup-keep tc-drop-down tc-print-tiddler-tools-dropdown" retain="yes" animate="yes" updatePopupPosition="yes">
+<div class="tc-chooser tc-page-break-chooser">
+<$list filter="[list[$:/PrintList]]">
+<$reveal stateTitle={{{ [[$:/state/print-page-break/]addsuffix<currentTiddler>] }}} type="nomatch" text="yes">
+<$button class=<<get-classes "tc-page-break-button tc-chooser-item">> tooltip={{$:/language/Buttons/PrintRiver/PageBreak/Yes/Hint}} aria-label={{$:/language/Buttons/PrintRiver/PageBreak/Yes/Hint}}>
+<<set-page-break>>
+<span style="margin-left: 1.5em;"><$text text=<<currentTiddler>>/></span>
+</$button>
+</$reveal>
+<$reveal stateTitle={{{ [[$:/state/print-page-break/]addsuffix<currentTiddler>] }}} type="match" text="yes">
+<$button class=<<get-classes "tc-page-break-button tc-chooser-item tc-chosen">> tooltip={{$:/language/Buttons/PrintRiver/PageBreak/No/Hint}} aria-label={{$:/language/Buttons/PrintRiver/PageBreak/No/Hint}}>
+<<unset-page-break>>
+<span style="margin-left: 1.5em;"><$text text=<<currentTiddler>>/></span>
+</$button>
+</$reveal>
+</$list>
+</div>
+</$reveal>
+</$vars>
