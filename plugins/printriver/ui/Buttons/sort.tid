@@ -1,0 +1,45 @@
+title: $:/plugins/BTC/PrintRiver/ui/Buttons/sort
+tags: $:/tags/PrintToolbar
+
+\whitespace trim
+\define lingo-base() $:/language/CloseAll/
+
+\define drop-actions()
+<$action-listops $tiddler="$:/PrintList" $subfilter="+[insertbefore:currentTiddler<actionTiddler>]"/>
+\end
+
+\define placeholder()
+<div class="tc-droppable-placeholder"/>
+\end
+
+\define droppable-item(button)
+\whitespace trim
+<$droppable actions=<<drop-actions>> enable=<<tv-allow-drag-and-drop>>>
+<<placeholder>>
+<div>
+$button$
+</div>
+</$droppable>
+\end
+<$reveal state="$:/state/PrintRiver/sort-dropdown" type="match" text="">
+<$button class=<<resolve-classes>> tooltip="sort" aria-label="sort" popup="$:/state/PrintRiver/sort-dropdown">
+{{$:/core/images/menu-button}}
+</$button>
+</$reveal>
+<$reveal state="$:/state/PrintRiver/sort-dropdown" type="nomatch" text="">
+<$button class=<<resolve-classes "tc-selected">> tooltip="sort" aria-label="sort" popup="$:/state/PrintRiver/sort-dropdown">
+{{$:/core/images/menu-button}}
+</$button>
+</$reveal>
+<$reveal type="popup" state="$:/state/PrintRiver/sort-dropdown" class="tc-print-tiddler-sort-dropdown tc-popup-keep">
+<$list filter="[list[$:/PrintList]]" history="$:/PrintHistoryList" storyview="pop">
+<div class="tc-sidebar-tab-open-item">
+<$macrocall $name="droppable-item" button="""<$button tooltip={{$:/language/Buttons/Close/Hint}} aria-label={{$:/language/Buttons/Close/Caption}} class="tc-btn-invisible tc-btn-mini tc-small-gap-right"><$action-listops $tiddler="$:/PrintList" $subfilter="-[<currentTiddler>]"/>{{$:/core/images/close-button}}</$button><$link to={{!!title}}><$view field="title"/></$link>"""/>
+</div>
+</$list>
+<$tiddler tiddler="">
+<div>
+<$macrocall $name="droppable-item" button="""<$button class="tc-btn-invisible tc-btn-mini"><$action-setfield $tiddler="$:/PrintList" list=""/><<lingo Button>></$button>"""/>
+</div>
+</$tiddler>
+</$reveal>

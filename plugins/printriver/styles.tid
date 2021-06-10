@@ -72,8 +72,10 @@ tags: $:/tags/Stylesheet
 	text-align: center;
 }
 
-.tc-single-tiddler-window .tc-print-tiddler-window-toolbar > button {
+.tc-single-tiddler-window .tc-print-tiddler-window-toolbar > button, .tc-single-tiddler-window .tc-print-tiddler-window-toolbar > span.tc-reveal > button {
 	margin-top: 3px;
+	padding-left: 0.3em;
+	padding-right: 0.3em;
 }
 
 .tc-single-tiddler-window .tc-print-tiddler-river .tc-tiddler-frame .tc-tiddler-controls button.tc-print-tiddler-new-window-button {
@@ -110,6 +112,27 @@ tags: $:/tags/Stylesheet
 
 .tc-single-tiddler-window .tc-print-tiddler-river .tc-tiddler-frame .tc-titlebar {
 	height: 1.35em;
+}
+
+.tc-single-tiddler-window .tc-print-tiddler-sort-dropdown {
+	text-align: left;
+	min-width: 220px;
+	text-shadow: none;
+	box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+	padding: 1em 2em 1em 1em;
+	border-radius: 4px;
+	border: 1px solid <<colour dropdown-border>>;
+	background-color: <<colour dropdown-background>>;
+}
+
+.tc-single-tiddler-window .tc-print-tiddler-sort-dropdown .tc-btn-mini {
+	font-size: 0.75em;
+    vertical-align: middle;
+}
+
+.tc-print-tiddler-sort-dropdown .tc-droppable-placeholder {
+	line-height: 2em;
+	height: 2em;
 }
 
 @media (min-width: <<sidebarbreakpoint>>) {
