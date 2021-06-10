@@ -35,6 +35,21 @@ tags: $:/tags/Stylesheet
 	}
 }
 \end
+\define center-title()
+.tc-single-tiddler-window .tc-print-tiddler-river [data-tiddler-title="$(cssEscapedTitle)$"].tc-tiddler-frame .tc-titlebar {
+	text-align: center;
+}
+\end
+\define center-subtitle()
+.tc-single-tiddler-window .tc-print-tiddler-river [data-tiddler-title="$(cssEscapedTitle)$"].tc-tiddler-frame .tc-subtitle {
+	text-align: center;
+}
+\end
+\define center-tags()
+.tc-single-tiddler-window .tc-print-tiddler-river [data-tiddler-title="$(cssEscapedTitle)$"].tc-tiddler-frame .tc-tags-wrapper {
+	text-align: center;
+}
+\end
 
 .tc-single-tiddler-window .tc-print-tiddler-river {
 	position: relative;
@@ -71,6 +86,13 @@ tags: $:/tags/Stylesheet
 	height: 2.35em;
 	line-height: 2.35em;
 	text-align: center;
+}
+
+.tc-single-tiddler-window .tc-print-tiddler-river .tc-tiddler-frame {
+	box-shadow: none;
+	border: none;
+	border-radius: 0;
+	width: 100%;
 }
 
 .tc-single-tiddler-window .tc-print-tiddler-river .tc-tiddler-frame .tc-print-river-view-template button {
@@ -156,6 +178,48 @@ tags: $:/tags/Stylesheet
 <$set name="cssEscapedTitle" value={{{ [<currentTiddler>removeprefix[$:/state/PrintRiver/page-break/]escapecss[]] }}}>
 
 <<page-breaks>>
+
+</$set>
+
+</$list>
+
+</$list>
+
+<$list filter="[all[tiddlers]prefix[$:/state/PrintRiver/center-title/]]">
+
+<$list filter="[<currentTiddler>get[text]match[yes]]" variable="ignore">
+
+<$set name="cssEscapedTitle" value={{{ [<currentTiddler>removeprefix[$:/state/PrintRiver/center-title/]escapecss[]] }}}>
+
+<<center-title>>
+
+</$set>
+
+</$list>
+
+</$list>
+
+<$list filter="[all[tiddlers]prefix[$:/state/PrintRiver/center-subtitle/]]">
+
+<$list filter="[<currentTiddler>get[text]match[yes]]" variable="ignore">
+
+<$set name="cssEscapedTitle" value={{{ [<currentTiddler>removeprefix[$:/state/PrintRiver/center-subtitle/]escapecss[]] }}}>
+
+<<center-subtitle>>
+
+</$set>
+
+</$list>
+
+</$list>
+
+<$list filter="[all[tiddlers]prefix[$:/state/PrintRiver/center-tags/]]">
+
+<$list filter="[<currentTiddler>get[text]match[yes]]" variable="ignore">
+
+<$set name="cssEscapedTitle" value={{{ [<currentTiddler>removeprefix[$:/state/PrintRiver/center-tags/]escapecss[]] }}}>
+
+<<center-tags>>
 
 </$set>
 

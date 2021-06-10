@@ -1,5 +1,6 @@
 title: $:/plugins/BTC/PrintRiver/ui/Templates/ViewTemplate
 tags: $:/tags/ViewTemplate
+list-before: $:/core/ui/ViewTemplate/tags
 
 <div class="tc-print-river-view-template">
 
