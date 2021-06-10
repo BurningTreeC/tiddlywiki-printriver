@@ -1,0 +1,10 @@
+title: $:/plugins/BTC/PrintRiver/ui/Templates/ViewTemplate
+tags: $:/tags/ViewTemplate
+
+<div class="tc-print-river-view-template">
+
+<$list filter="[all[tiddlers+shadows]tag[$:/tags/PrintToolbar/SingleTiddler]]" variable="listItem">
+<$transclude tiddler=<<listItem>>/>
+</$list>
+
+</div>

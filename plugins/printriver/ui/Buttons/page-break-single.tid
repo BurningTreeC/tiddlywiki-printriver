@@ -1,0 +1,8 @@
+title: $:/plugins/BTC/PrintRiver/ui/Buttons/page-break
+tags: $:/tags/PrintToolbar/SingleTiddler
+
+\define get-tiddler() $:/state/PrintRiver/page-break/$(currentTiddler)$
+
+<$checkbox tiddler=<<get-tiddler>> field="text" checked="yes" unchecked="no" default="no">
+break
+</$checkbox>

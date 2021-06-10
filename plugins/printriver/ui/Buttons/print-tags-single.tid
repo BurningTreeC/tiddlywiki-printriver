@@ -1,0 +1,8 @@
+title: $:/plugins/BTC/PrintRiver/ui/Buttons/print-tags
+tags: $:/tags/PrintToolbar/SingleTiddler
+
+\define get-tiddler() $:/state/PrintRiver/print-tags/$(currentTiddler)$
+
+<$checkbox tiddler=<<get-tiddler>> field="text" checked="yes" unchecked="no" default="yes">
+tags
+</$checkbox>

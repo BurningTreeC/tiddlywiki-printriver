@@ -1,0 +1,15 @@
+title: $:/plugins/BTC/PrintRiver/ui/Buttons/print
+tags: $:/tags/PrintToolbar
+
+\whitespace trim
+<$button class=<<resolve-classes "tc-print-river-button">>>
+<$action-sendmessage $message="tm-print"/>
+<$list filter="[<tv-config-toolbar-icons>match[yes]]">
+{{$:/core/images/print-button}}
+</$list>
+<$list filter="[<tv-config-toolbar-text>match[yes]]">
+<span class="tc-btn-text">
+<$text text={{$:/language/Buttons/PrintRiver/Caption}}/>
+</span>
+</$list>
+</$button>

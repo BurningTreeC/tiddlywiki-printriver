@@ -1,6 +1,41 @@
 title: $:/plugins/BTC/PrintRiver/styles
 tags: $:/tags/Stylesheet
 
+\define sidebarbreakpoint()
+<$text text={{$:/themes/tiddlywiki/vanilla/metrics/sidebarbreakpoint}}/>
+\end
+
+\define sidebarbreakpoint-minus-one()
+<$text text={{{ [{$:/themes/tiddlywiki/vanilla/metrics/sidebarbreakpoint}removesuffix[px]subtract[1]addsuffix[px]] ~[{$:/themes/tiddlywiki/vanilla/metrics/sidebarbreakpoint}] }}}/>
+\end
+\define hide-title()
+.tc-single-tiddler-window .tc-print-tiddler-river [data-tiddler-title="$(cssEscapedTitle)$"].tc-tiddler-frame .tc-title {
+	display: none;
+}
+@media print {
+	.tc-single-tiddler-window .tc-print-tiddler-river [data-tiddler-title="$(cssEscapedTitle)$"].tc-tiddler-frame .tc-tiddler-title {
+		display: none;
+	}
+}
+\end
+\define hide-subtitle()
+.tc-single-tiddler-window .tc-print-tiddler-river [data-tiddler-title="$(cssEscapedTitle)$"].tc-tiddler-frame .tc-subtitle {
+	display: none;
+}
+\end
+\define hide-tags()
+.tc-single-tiddler-window .tc-print-tiddler-river [data-tiddler-title="$(cssEscapedTitle)$"].tc-tiddler-frame .tc-tags-wrapper {
+	display: none;
+}
+\end
+\define page-breaks()
+@media print {
+	.tc-single-tiddler-window .tc-print-tiddler-river [data-tiddler-title="$(cssEscapedTitle)$"].tc-tiddler-frame {
+		page-break-before: always;
+	}
+}
+\end
+
 .tc-single-tiddler-window .tc-print-tiddler-river {
 	position: relative;
 	top: 20px;
@@ -14,4 +49,116 @@ tags: $:/tags/Stylesheet
 	height: 20px;
 	background-color: <<colour alert-background>>;
 	z-index: 1000;
+	text-align: center;
 }
+
+.tc-single-tiddler-window .tc-print-tiddler-window-toolbar > button {
+	margin-top: 3px;
+}
+
+.tc-single-tiddler-window .tc-print-tiddler-river .tc-tiddler-frame .tc-tiddler-controls button.tc-print-tiddler-new-window-button {
+	display: none;
+}
+
+.tc-print-river-view-template {
+	display: none;
+}
+
+.tc-single-tiddler-window .tc-print-tiddler-river .tc-tiddler-frame .tc-print-river-view-template {
+	display: block;
+	border-radius: 4px;
+	background-color: <<colour alert-background>>;
+	height: 2.35em;
+	line-height: 2.35em;
+	text-align: center;
+}
+
+.tc-single-tiddler-window .tc-print-tiddler-river .tc-tiddler-frame .tc-print-river-view-template button {
+	margin-top: 0.5em;
+}
+
+.tc-single-tiddler-window .tc-print-tiddler-river .tc-tiddler-frame .tc-tags-wrapper {
+	margin-top: 0.5em;
+}
+
+.tc-single-tiddler-window .tc-print-tiddler-river .tc-tiddler-frame .tc-titlebar {
+	height: 1.35em;
+}
+
+@media (max-width: <<sidebarbreakpoint-minus-one>>) {
+	.tc-single-tiddler-window .tc-print-tiddler-river .tc-tiddler-frame .tc-tiddler-controls {
+		position: absolute;
+		right: 14px;
+	}
+}
+
+@media print {
+	.tc-print-tiddler-window-toolbar {
+		display: none;
+	}
+	.tc-print-tiddler-river {
+		top: 0px;
+	}
+	.tc-single-tiddler-window .tc-print-tiddler-river .tc-tiddler-frame .tc-print-river-view-template {
+		display: none;
+	}
+	.tc-single-tiddler-window .tc-print-tiddler-river .tc-tiddler-frame .tc-tiddler-controls {
+		display: none;
+	}
+}
+
+<$list filter="[all[tiddlers]prefix[$:/state/PrintRiver/print-title/]]">
+
+<$list filter="[<currentTiddler>get[text]match[no]]" variable="ignore">
+
+<$set name="cssEscapedTitle" value={{{ [<currentTiddler>removeprefix[$:/state/PrintRiver/print-title/]escapecss[]] }}}>
+
+<<hide-title>>
+
+</$set>
+
+</$list>
+
+</$list>
+
+<$list filter="[all[tiddlers]prefix[$:/state/PrintRiver/print-subtitle/]]">
+
+<$list filter="[<currentTiddler>get[text]match[no]]" variable="ignore">
+
+<$set name="cssEscapedTitle" value={{{ [<currentTiddler>removeprefix[$:/state/PrintRiver/print-subtitle/]escapecss[]] }}}>
+
+<<hide-subtitle>>
+
+</$set>
+
+</$list>
+
+</$list>
+
+<$list filter="[all[tiddlers]prefix[$:/state/PrintRiver/print-tags/]]">
+
+<$list filter="[<currentTiddler>get[text]match[no]]" variable="ignore">
+
+<$set name="cssEscapedTitle" value={{{ [<currentTiddler>removeprefix[$:/state/PrintRiver/print-tags/]escapecss[]] }}}>
+
+<<hide-tags>>
+
+</$set>
+
+</$list>
+
+</$list>
+
+<$list filter="[all[tiddlers]prefix[$:/state/PrintRiver/page-break/]]">
+
+<$list filter="[<currentTiddler>get[text]match[yes]]" variable="ignore">
+
+<$set name="cssEscapedTitle" value={{{ [<currentTiddler>removeprefix[$:/state/PrintRiver/page-break/]escapecss[]] }}}>
+
+<<page-breaks>>
+
+</$set>
+
+</$list>
+
+</$list>

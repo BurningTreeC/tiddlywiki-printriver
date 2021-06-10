@@ -3,16 +3,15 @@ title: $:/plugins/BTC/PrintRiver/ui/Templates/PrintRiver
 \define print-river-classes()
 tc-print-tiddler-river
 \end
+\define resolve-classes(class)
+$(tv-config-toolbar-class)$ $class$
+\end
 \whitespace trim
 
 <div class="tc-print-tiddler-window-toolbar">
-
 <$list filter="[all[tiddlers+shadows]tag[$:/tags/PrintToolbar]]" variable="listItem">
-
 <$transclude tiddler=<<listItem>>/>
-
 </$list>
-
 </div>
 
 <div class=<<print-river-classes>>>

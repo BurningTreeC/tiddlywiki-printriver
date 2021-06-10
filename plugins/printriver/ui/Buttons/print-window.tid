@@ -1,7 +1,11 @@
 title: $:/plugins/BTC/PrintRiver/ui/Buttons/print-window
 tags: $:/tags/ViewToolbar
 
-<$button class=<<tv-config-toolbar-class>>>
+\define resolve-classes(class)
+$(tv-config-toolbar-class)$ $class$
+\end
+\whitespace trim
+<$button class=<<resolve-classes "tc-print-tiddler-new-window-button">>>
 <$action-listops $tiddler="$:/PrintList" $subfilter="[<storyTiddler>]"/>
 <$action-sendmessage $message="tm-open-window" $param="$:/plugins/BTC/PrintRiver/ui/Templates/PrintRiver" windowTitle="TiddlyWiki5 - PrintRiver"/>
 <$list filter="[<tv-config-toolbar-icons>match[yes]]">
