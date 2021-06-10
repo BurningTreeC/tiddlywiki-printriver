@@ -1,0 +1,15 @@
+title: $:/plugins/BTC/PrintRiver/ui/Buttons/print-window
+tags: $:/tags/ViewToolbar
+
+<$button class=<<tv-config-toolbar-class>>>
+<$action-listops $tiddler="$:/PrintList" $subfilter="[<storyTiddler>]"/>
+<$action-sendmessage $message="tm-open-window" $param="$:/plugins/BTC/PrintRiver/ui/Templates/PrintRiver" windowTitle="TiddlyWiki5 - PrintRiver"/>
+<$list filter="[<tv-config-toolbar-icons>match[yes]]">
+{{$:/core/images/print-button}}
+</$list>
+<$list filter="[<tv-config-toolbar-text>match[yes]]">
+<span class="tc-btn-text">
+<$text text={{$:/language/Buttons/PrintWindow/Caption}}/>
+</span>
+</$list>
+</$button>

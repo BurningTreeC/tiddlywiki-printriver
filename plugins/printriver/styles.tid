@@ -1,0 +1,17 @@
+title: $:/plugins/BTC/PrintRiver/styles
+tags: $:/tags/Stylesheet
+
+.tc-single-tiddler-window .tc-print-tiddler-river {
+	position: relative;
+	top: 20px;
+}
+
+.tc-single-tiddler-window .tc-print-tiddler-window-toolbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 20px;
+	background-color: <<colour alert-background>>;
+	z-index: 1000;
+}
