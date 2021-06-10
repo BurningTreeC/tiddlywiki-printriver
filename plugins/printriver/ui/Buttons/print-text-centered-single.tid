@@ -1,0 +1,8 @@
+title: $:/plugins/BTC/PrintRiver/ui/Buttons/center-text
+tags: $:/tags/PrintToolbar/SingleTiddler
+
+\define get-tiddler() $:/state/PrintRiver/center-text/$(currentTiddler)$
+
+<$checkbox tiddler=<<get-tiddler>> field="text" checked="yes" unchecked="no" default="no">
+center text
+</$checkbox>

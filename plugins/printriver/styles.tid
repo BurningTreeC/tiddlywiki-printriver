@@ -50,6 +50,11 @@ tags: $:/tags/Stylesheet
 	text-align: center;
 }
 \end
+\define center-text()
+.tc-single-tiddler-window .tc-print-tiddler-river [data-tiddler-title="$(cssEscapedTitle)$"].tc-tiddler-frame .tc-tiddler-body {
+	text-align: center;
+}
+\end
 
 .tc-single-tiddler-window .tc-print-tiddler-river {
 	position: relative;
@@ -220,6 +225,20 @@ tags: $:/tags/Stylesheet
 <$set name="cssEscapedTitle" value={{{ [<currentTiddler>removeprefix[$:/state/PrintRiver/center-tags/]escapecss[]] }}}>
 
 <<center-tags>>
+
+</$set>
+
+</$list>
+
+</$list>
+
+<$list filter="[all[tiddlers]prefix[$:/state/PrintRiver/center-text/]]">
+
+<$list filter="[<currentTiddler>get[text]match[yes]]" variable="ignore">
+
+<$set name="cssEscapedTitle" value={{{ [<currentTiddler>removeprefix[$:/state/PrintRiver/center-text/]escapecss[]] }}}>
+
+<<center-text>>
 
 </$set>
 
