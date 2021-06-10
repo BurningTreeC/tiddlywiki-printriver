@@ -172,6 +172,9 @@ tags: $:/tags/Stylesheet
 	.tc-single-tiddler-window .tc-print-tiddler-river .tc-tiddler-frame {
 		padding: 0 0 0 0;
 	}
+	.tc-single-tiddler-window .tc-print-tiddler-river .tc-tiddler-frame .tc-tiddler-info {
+		margin: 0 0 0 0;
+	}
 }
 
 <$list filter="[all[tiddlers]prefix[$:/state/PrintRiver/print-title/]]">
