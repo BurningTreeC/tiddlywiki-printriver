@@ -7,19 +7,13 @@ tc-print-tiddler-river
 $(tv-config-toolbar-class)$ $class$
 \end
 \whitespace trim
-
 <div class="tc-print-tiddler-window-toolbar">
 <$list filter="[all[tiddlers+shadows]tag[$:/tags/PrintToolbar]]" variable="listItem">
 <$transclude tiddler=<<listItem>>/>
 </$list>
 </div>
-
 <div class=<<print-river-classes>>>
-
 <$navigator story="$:/PrintList" history="$:/PrintHistoryList">
-
 <$list filter="[list[$:/PrintList]]" template="$:/core/ui/ViewTemplate" editTemplate="$:/core/ui/EditTemplate" storyview="classic"/>
-
 </$navigator>
-
 </div>
