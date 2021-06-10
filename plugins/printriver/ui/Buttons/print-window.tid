@@ -1,5 +1,6 @@
 title: $:/plugins/BTC/PrintRiver/ui/Buttons/print-window
 tags: $:/tags/ViewToolbar
+description: Print tiddler in ~PrintRiver
 
 \define resolve-classes(class)
 $(tv-config-toolbar-class)$ $class$

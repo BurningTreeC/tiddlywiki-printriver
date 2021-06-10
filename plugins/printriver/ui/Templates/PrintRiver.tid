@@ -13,7 +13,7 @@ $(tv-config-toolbar-class)$ $class$
 </$list>
 </div>
 <div class=<<print-river-classes>>>
-<$navigator story="$:/PrintList" history="$:/PrintHistoryList">
+<$navigator story="$:/PrintList" history="$:/PrintHistoryList" openLinkFromInsideRiver={{$:/config/Navigation/openLinkFromInsideRiver}} openLinkFromOutsideRiver={{$:/config/Navigation/openLinkFromOutsideRiver}} relinkOnRename={{$:/config/RelinkOnRename}}>
 <$list filter="[list[$:/PrintList]]" template="$:/core/ui/ViewTemplate" editTemplate="$:/core/ui/EditTemplate" storyview="classic"/>
 </$navigator>
 </div>

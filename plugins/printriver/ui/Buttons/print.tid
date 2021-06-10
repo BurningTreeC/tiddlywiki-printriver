@@ -2,7 +2,7 @@ title: $:/plugins/BTC/PrintRiver/ui/Buttons/print
 tags: $:/tags/PrintToolbar
 
 \whitespace trim
-<$button class=<<resolve-classes "tc-print-river-button">>>
+<$button class=<<resolve-classes "tc-print-river-button">> tooltip={{$:/language/Buttons/PrintRiver/Caption}} aria-label={{$:/language/Buttons/PrintRiver/Caption}}>
 <$action-sendmessage $message="tm-print"/>
 <$list filter="[<tv-config-toolbar-icons>match[yes]]">
 {{$:/core/images/print-button}}
