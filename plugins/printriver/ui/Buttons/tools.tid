@@ -1,0 +1,19 @@
+title: $:/plugins/BTC/PrintRiver/ui/Buttons/tools
+tags: $:/tags/PrintToolbar
+
+\whitespace trim
+<$reveal state="$:/state/PrintRiver/tools-dropdown" type="match" text="">
+<$button class=<<resolve-classes>> tooltip="tools" aria-label="tools" popup="$:/state/PrintRiver/tools-dropdown">
+{{$:/core/images/theme-button}}
+</$button>
+</$reveal>
+<$reveal state="$:/state/PrintRiver/tools-dropdown" type="nomatch" text="">
+<$button class=<<resolve-classes "tc-selected">> tooltip="sort" aria-label="sort" popup="$:/state/PrintRiver/tools-dropdown">
+{{$:/core/images/theme-button}}
+</$button>
+</$reveal>
+<$reveal type="popup" state="$:/state/PrintRiver/tools-dropdown" class="tc-print-tiddler-tools-dropdown tc-popup-keep">
+<$list filter="[all[tiddlers+shadows]tag[$:/tags/PrintToolbar/Tools]]" variable="listItem">
+<$transclude tiddler=<<listItem>> mode="block"/>
+</$list>
+</$reveal>

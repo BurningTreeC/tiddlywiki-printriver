@@ -7,11 +7,9 @@ tags: $:/tags/PrintToolbar
 \define drop-actions()
 <$action-listops $tiddler="$:/PrintList" $subfilter="+[insertbefore:currentTiddler<actionTiddler>]"/>
 \end
-
 \define placeholder()
 <div class="tc-droppable-placeholder"/>
 \end
-
 \define droppable-item(button)
 \whitespace trim
 <$droppable actions=<<drop-actions>> enable=<<tv-allow-drag-and-drop>>>

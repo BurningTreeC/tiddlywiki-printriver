@@ -1,0 +1,4 @@
+title: $:/plugins/BTC/PrintRiver/ui/Buttons/fontsize
+tags: $:/tags/PrintToolbar/Tools
+
+<span class="tc-print-tiddler-tools-text">fontsize: </span><$edit-text tiddler="$:/config/PrintRiver/fontsize" placeholder="fontsize" default="" tag="input"/>

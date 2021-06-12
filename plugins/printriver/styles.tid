@@ -90,7 +90,7 @@ tags: $:/tags/Stylesheet
 	display: block;
 	border-radius: 4px;
 	background-color: <<colour alert-background>>;
-	height: 2.35em;
+	font-size: {{$:/themes/tiddlywiki/vanilla/metrics/fontsize}};
 	line-height: 2.35em;
 	text-align: center;
 }
@@ -114,7 +114,7 @@ tags: $:/tags/Stylesheet
 	height: 1.35em;
 }
 
-.tc-single-tiddler-window .tc-print-tiddler-sort-dropdown {
+.tc-single-tiddler-window .tc-print-tiddler-sort-dropdown, .tc-single-tiddler-window .tc-print-tiddler-tools-dropdown {
 	text-align: left;
 	min-width: 220px;
 	text-shadow: none;
@@ -135,6 +135,16 @@ tags: $:/tags/Stylesheet
 	height: 2em;
 }
 
+.tc-single-tiddler-window .tc-print-tiddler-river .tc-tiddler-frame .tc-tiddler-body {
+	font-size: {{$:/config/PrintRiver/tiddler-body-fontsize}};
+	line-height: {{$:/config/PrintRiver/tiddler-body-lineheight}};
+}
+
+.tc-single-tiddler-window .tc-print-tiddler-river {
+	font-size: {{$:/config/PrintRiver/fontsize}};
+	line-height: {{$:/config/PrintRiver/lineheight}};
+}
+
 @media (min-width: <<sidebarbreakpoint>>) {
 	.tc-single-tiddler-window .tc-print-tiddler-river .tc-tiddler-frame .tc-tiddler-info {
 		margin-left: -56px;
@@ -146,6 +156,7 @@ tags: $:/tags/Stylesheet
 	.tc-single-tiddler-window .tc-print-tiddler-river .tc-tiddler-frame .tc-tiddler-controls {
 		position: absolute;
 		right: 14px;
+		font-size: 30px;
 	}
 	.tc-single-tiddler-window .tc-print-tiddler-river .tc-tiddler-frame .tc-tiddler-info {
 		margin-left: -28px;

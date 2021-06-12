@@ -1,0 +1,4 @@
+title: $:/plugins/BTC/PrintRiver/ui/Buttons/lineheight
+tags: $:/tags/PrintToolbar/Tools
+
+<span class="tc-print-tiddler-tools-text">lineheight: </span><$edit-text tiddler="$:/config/PrintRiver/lineheight" placeholder="lineheight" default="" tag="input"/>
