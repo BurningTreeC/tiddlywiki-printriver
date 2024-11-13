@@ -3,8 +3,11 @@
 This plugin adds a Print River to [TiddlyWiki5](https://tiddlywiki.com)
 
 Tiddlers can be opened in a dedicated new window
+
 Titles, subtitles and tags can be shown or hidden
+
 Various alignments and reordering can be done before printing
+
 Finally, there's a print button to print the resulting window
 
 # Installation
