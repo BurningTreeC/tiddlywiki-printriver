@@ -1,5 +1,6 @@
 title: $:/plugins/BTC/PrintRiver/ui/Buttons/sort
 tags: $:/tags/PrintToolbar
+list-before: $:/plugins/BTC/PrintRiver/ui/Buttons/print
 
 \whitespace trim
 \define lingo-base() $:/language/CloseAll/

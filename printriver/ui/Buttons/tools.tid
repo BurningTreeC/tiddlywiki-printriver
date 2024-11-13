@@ -1,5 +1,6 @@
 title: $:/plugins/BTC/PrintRiver/ui/Buttons/tools
 tags: $:/tags/PrintToolbar
+list-before:
 
 \whitespace trim
 <$reveal state="$:/state/PrintRiver/tools-dropdown" type="match" text="">
